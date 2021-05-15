@@ -6,10 +6,6 @@
   &__btn {
     position: relative;
 
-    @include md-min {
-      display: none;
-    }
-
     width: 30px;
     height: 22.5px;
     margin: $gap 0;
@@ -17,6 +13,10 @@
     cursor: pointer;
     transition: 0.5s ease-in-out;
     transform: rotate(0deg);
+
+    @include md-min {
+      display: none;
+    }
 
     &-row {
       position: absolute;
@@ -114,16 +114,19 @@
     @include md-min {
       display: grid;
       justify-content: end;
+
       grid-template-columns: repeat(auto-fit, minmax(50px, max-content));
     }
-
     @include md {
-      display: none;
       position: absolute;
-      right: $gap * 2;
       top: 100%;
-      background-color: rgba($color-gray-dark, 0.9);
+      right: $gap * 2;
+
+      display: none;
+
       text-align: right;
+
+      background-color: rgba($color-gray-dark, 0.9);
     }
   }
 
