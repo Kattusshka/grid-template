@@ -1,10 +1,53 @@
 .about {
   width: 100%;
   height: auto;
-  padding-top: 100px;
-  padding-bottom: 100px;
 
   background-color: $color-gray-light;
+
+  @include lg-min {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+  @include lg-md {
+    padding-top: 75px;
+    padding-bottom: 75px;
+  }
+  @include md {
+    padding-top: 57px;
+    padding-bottom: 57px;
+  }
+
+  &__container {
+    display: grid;
+    align-items: center;
+
+    max-width: 1340px;
+    margin: auto;
+    padding-right: 20px;
+    padding-left: 20px;
+
+    gap: 100px;
+    grid-template-areas: "a1 a2";
+    grid-template-columns: 1fr 271px;
+    @include sm {
+      grid-template-areas: "a1" "a2";
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__content {
+    margin: auto;
+
+    grid-area: a1;
+  }
+
+  &__image {
+    display: grid;
+    align-content: center;
+    justify-content: center;
+
+    grid-area: a2;
+  }
 }
 
 h2 {
@@ -16,9 +59,18 @@ h2 {
   color: $color-primary;
 
   font-family: Roboto Slab;
-  font-size: 2.5rem;
   font-weight: bold;
   line-height: 1.2em;
+
+  @include lg-min {
+    font-size: 2.5rem;
+  }
+  @include lg-md {
+    font-size: 2rem;
+  }
+  @include md-sm {
+    font-size: 1.5rem;
+  }
 }
 
 p {
@@ -32,57 +84,37 @@ p {
 
   font-size: 1.125rem;
   line-height: 1.15em;
-}
 
-p:first-of-type {
-  position: relative;
+  @include md {
+    font-size: 1rem;
+  }
+  @include sm {
+    text-align: justify;
+  }
 
-  margin-top: -5px;
-}
+  &:first-of-type {
+    position: relative;
 
-p:last-of-type {
-  margin: 0;
-}
+    margin-top: -5px;
+  }
 
-p:first-of-type:after {
-  position: absolute;
-  top: 0;
-  right: -50px;
+  &:last-of-type {
+    margin: 0;
+  }
 
-  width: 2px;
-  height: 200px;
+  &:first-of-type:after {
+    position: absolute;
+    top: 0;
+    right: -50px;
 
-  content: "";
+    width: 2px;
+    height: 200px;
 
-  opacity: 0.1;
-  background-color: #707070;
-}
+    content: "";
 
-.about__container {
-  display: grid;
-  align-items: center;
-
-  max-width: 1340px;
-  margin: auto;
-  padding-right: 20px;
-  padding-left: 20px;
-
-  gap: 100px;
-  grid-template-areas: "a1 a2";
-  grid-template-columns: 1fr 271px;
-}
-
-.about__content {
-  margin: auto;
-
-  grid-area: a1;
-}
-.about__image {
-  display: grid;
-  align-content: center;
-  justify-content: center;
-
-  grid-area: a2;
+    opacity: 0.1;
+    background-color: #707070;
+  }
 }
 
 img {
