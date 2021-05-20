@@ -1165,25 +1165,69 @@ img {
   margin: auto;
   padding: 0 20px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+}
+
+.btn--subscribe,
+.form-item__input {
+  width: 100%;
+  height: 60px;
+  border: 2px solid rgba(255, 255, 255, 0);
+  border-bottom-color: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
 }
 
 .form-item__input {
   display: block;
-  width: 100%;
-  height: 60px;
   padding-right: 30px;
   padding-left: 30px;
   font-size: 1.125rem;
   letter-spacing: 0.15em;
-  color: #ffffff;
-  border: 2px solid rgba(255, 255, 255, 0);
-  border-bottom-color: rgba(255, 255, 255, 0.25);
   background-color: rgba(255, 255, 255, 0.05);
   -webkit-transition: background-color 0.5s, border-color 0.5s;
   -o-transition: background-color 0.5s, border-color 0.5s;
   transition: background-color 0.5s, border-color 0.5s;
+  cursor: text;
+}
+
+.form-item__input:hover, .form-item__input:focus {
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-bottom-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  outline: none;
+}
+
+.form-item__input::-webkit-input-placeholder {
+  color: #637588;
+}
+
+.form-item__input::-moz-placeholder {
+  color: #637588;
+}
+
+.form-item__input:-ms-input-placeholder {
+  color: #637588;
+}
+
+.form-item__input::-ms-input-placeholder {
+  color: #637588;
+}
+
+.form-item__input::placeholder {
+  color: #637588;
+}
+
+.btn--subscribe {
+  background-color: rgba(255, 255, 255, 0.1);
+  -webkit-transition: border-color 0.5s;
+  -o-transition: border-color 0.5s;
+  transition: border-color 0.5s;
+  font-size: 1.125rem;
+}
+
+.btn--subscribe:hover, .btn--subscribe:focus {
+  border: 2px solid #ffffff;
 }
 
 @media (min-width: 576px) {
@@ -1219,6 +1263,9 @@ img {
   }
   .skill-item__title {
     font-size: 1.25rem;
+  }
+  .form__container {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -1361,6 +1408,9 @@ img {
   img {
     width: 236px;
     height: 425px;
+  }
+  .form__container {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
