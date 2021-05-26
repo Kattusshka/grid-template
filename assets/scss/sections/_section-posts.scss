@@ -1,26 +1,24 @@
-h3 {
-  letter-spacing: 0.05em;
-  color: $color-gray;
-  font-size: 1.125rem;
-}
-
 .posts {
   padding-top: 100px;
   padding-bottom: 100px;
-}
 
-.posts__container {
-  max-width: 1340px;
-  margin: auto;
-  padding-right: 20px;
-  padding-left: 20px;
-}
+  &__container {
+    max-width: 1340px;
+    margin: auto;
+    padding-right: $gap;
+    padding-left: $gap;
+  }
 
-.posts__grid {
-  display: grid;
-  padding-bottom: 20px;
-  gap: 20px;
-  grid-template-areas: "p1 p1 p2 p3" "p4 p5 p6 p6";
+  &__grid {
+    display: grid;
+    padding-bottom: $gap;
+    gap: $gap;
+
+    @include lg-min {
+      grid-template-areas: "p1 p1 p2 p3" "p4 p5 p6 p6";
+      grid-template-columns: repeat (4, 1fr);
+    }
+  }
 }
 
 @for $i from 1 through 6 {
@@ -32,49 +30,77 @@ h3 {
 .post-item {
   background-color: #f2f2f2;
   transition: background-color 0.5s;
-}
 
-.post-item__image img {
-  width: 100%;
-  height: 300px;
-}
+  &__link {
+    display: grid;
+    overflow: hidden;
+    height: 100%;
+    grid-template-rows: 300px 1fr;
+  }
 
-.post-item__image {
-  display: flex;
-  overflow: hidden;
-  background-color: $color-primary;
-  align-content: center;
-  justify-content: center;
-}
+  &__image img {
+    width: 100%;
+    transition: transform 0.5s;
+    object-fit: cover;
+  }
 
-.post-item__caption {
-  display: grid;
-  align-content: center;
-  padding: 20px;
-}
+  &__image {
+    display: flex;
+    overflow: hidden;
+    background-color: $color-primary;
+    align-content: center;
+    justify-content: center;
+  }
+  &__caption {
+    display: grid;
 
-.post-item__caption h3 {
-  text-align: center;
-  transition: color 0.5s;
-  font-family: "Roboto Slab", serif;
-}
+    align-content: center;
+    padding: $gap;
+  }
 
-.post-item__caption p {
-  display: block;
-  text-align: center;
+  &__caption h3 {
+    text-align: center;
+    transition: color 0.5s;
+    font-family: "Roboto Slab", serif;
 
-  letter-spacing: 0.049em;
+    letter-spacing: 0.05em;
+    color: $color-gray;
+    font-size: 1.125rem;
+  }
 
-  color: $color-gray;
+  &__caption p {
+    display: block;
 
-  font-size: 1.125rem;
-  line-height: 1.15em;
-  margin: 16px auto;
+    letter-spacing: 0.005em;
 
-  text-align: center;
-  transition: color 0.5s;
+    color: $color-gray;
 
-  &:first-of-type:after {
-    display: none;
+    font-size: 1rem;
+    line-height: 1.15em;
+    margin: 16px auto;
+
+    text-align: center;
+
+    transition: color 0.5s;
+
+    &:first-of-type:after {
+      display: none;
+    }
   }
 }
+
+// .posts__actions {
+//   @include sm-min {
+//     display: flex;
+//     justify-content: center;
+//   }
+// }
+
+// .btn--primary {
+//   @include sm-min {
+//     display: flex;
+//     min-width: 350px;
+//     align-items: center;
+//     justify-content: center;
+//   }
+// }
